@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('pull') {
+            steps {
+                git 'https://github.com/ari-name123/kildeep.git'
+            }
+        }
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh ' /opt/maven/bin/mvn clean package '
+            }
+        }
+    }
+}
