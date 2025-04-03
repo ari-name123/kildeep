@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Push') {
+            steps {
+                git credentialsId: '173035e4-7e91-4990-b6f3-473b30c020e5', url: 'https://github.com/shaktimaan-gangadhar/sonar.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'
+            }
+        }
+    }
+}
